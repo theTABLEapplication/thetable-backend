@@ -2,7 +2,6 @@
 
 ## Authors: Sarah Creager, Justin Hamerly, Christopher Burk, Haustin Kimbrough
 
-
 ## Version: 1.0.0
 
 ## Description
