@@ -5,8 +5,9 @@ const { Schema } = mongoose;
 const restSchema = new Schema({
   name: String,
   hours: String,
-  location: String,
   open_now: Boolean,
+  address: String,
+  location: String,
   categories: String,
   url: String,
 });
