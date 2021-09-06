@@ -38,7 +38,7 @@ Acceptance:
 
 * Logout button will conditionally render once user is logged in.
 
-### ADD A RESTAURANTE FEATURE
+### ADD A RESTAURANT FEATURE
 
 As a user, I want to input previous restaurant experiences so I can track what restaurants I’ve been to and what dish was my favorite.
 
