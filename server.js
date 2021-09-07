@@ -1,7 +1,7 @@
 'use strict';
 
 // imports
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
