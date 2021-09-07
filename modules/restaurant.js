@@ -5,36 +5,38 @@ const cache = require('../helpers/cache');
 const Restaurant = require('../models/restSchema');
 
 const RestRoutes = {
-  create: createRest,
+  // create: createRest,
   read: getRests,
-  update: updateRest,
-  delete: deleteRest,
+  // update: updateRest,
+  // delete: deleteRest,
 }
 
-function getRests (request, response) {
-  const token = request.headers.authorization.split(' ')[1];
-  jwt.verify(token, getKey, {}, async function(error, user) {
-    if(error){
-      response.send('invalid token');
-    } else {
+async function getRests (request, response) {
+  // const token = request.headers.authorization.split(' ')[1];
+  // jwt.verify(token, getKey, {}, async function(error, user) {
+  //   if(error){
+  //     response.send('invalid token');
+  //   } else {
       let name = request.query.name;
       let city = request.query.city;
-      const yelpKey = proecss.env.YELP_API_KEY;
+      const yelpKey = process.env.YELP_API_KEY;
     
       let yelpAPI_URL = `https://api.yelp.com/v3/businesses/search?location=${city}&term=${name}&limit=5`;
     
       try{
-        let yelpResponse = await axios.get(yelpAPI_URL, {Authorization: {'Bearer': yelpKey}});
-        const yelpArray = yelpResponse.businesses.map();
+        let yelpResponse = await axios.get(yelpAPI_URL, {
+          headers: {
+            Authorization: `Bearer ${yelpKey}`,
+          }
+        });
+        const yelpArray = yelpResponse.data.businesses;
         response.send(yelpArray);
       }catch(error){
-        response.send('No restaurants found');
+        console.log(error);
+        response.send(error);
       }
     }
-  })  
-};
+//   })  
+// };
 
-app.get('/restaurants', RestRoutes.read);
-app.post('/restaurants', RestRoutes.create);
-app.put('/restaurants', RestRoutes.update);
-app.delete('/restaurants', RestRoutes.delete);
+module.exports = RestRoutes;
