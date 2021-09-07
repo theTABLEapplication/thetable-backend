@@ -17,7 +17,13 @@ const PORT = process.env.PORT || 3002;
 const app = express();
 app.use(express.json());
 app.use(cors());
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI).then( () => {
+  console.log('successfully connected')
+})
+.catch(e => {
+  console.log(e);
+});
+
 
 
 // connect to mongoose database
