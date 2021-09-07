@@ -5,10 +5,11 @@ const dotenv = require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-// const { request, response } = require('express');
 const jwt = require('jsonwebtoken');
 const getKey = require('./helpers/getKey');
-const getMap = require('./modules/map');
+const UserRoutes = require('./modules/userPaths');
+const testServer = require('./modules/serverTest');
+// const getMap = require('./modules/map');
 
 const PORT = process.env.PORT || 3002;
 
@@ -28,53 +29,35 @@ database.once('database open', _ => {
   console.log('connected on database');
 });
 
-// routes
-app.get('/map', getMap);
+// Routes
+// Testing Server Connection
+app.get('/', testServer);
 
-app.get('/test', async function test(request, response) {
+//User Routes
+app.get('/user', UserRoutes.read);
+app.post('/user', UserRoutes.create);
+app.put('/user', UserRoutes.update);
 
-  const token = request.headers.authorization.split(' ')[1];
+// Restaurant Routes
 
-  jwt.verify(token, getKey, {}, function (err, user) {
-    if (err) {
-      response.send('invalid token');
-    } else {
-      response.send(user);
-    }
-  });
-
-});
-
-
-app.get('/user', (request, response) => {
-    const token = request.headers.authorization.split(' ')[1];
-    
-      jwt.verify(token, getKey, {}, function (err, user) {
-        if (err) {
-  
-        } else {
-          // try {
-          //   request.query.email(request, response) => {
-          //     //   const token = request.headers.authorization.split(' ')[1];
-                
-          //     //     jwt.verify(token, getKey, {}, function (err, user) {
-          //     //       if (err) {
-              
-          //     //       }
-          //     //     });
-          //   }
-          // } catch (error) {}
-        }
-    })
-});
-
-app.get('/', (request, response) => {
-  try {
-    response.status(200).send('connected');
-  } catch (error) {
-    response.status(500).send(error);
-  }
-})
+// Map Routes?
 
 // listener
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
+
+
+// app.get('/map', getMap);
+
+// app.get('/test', async function test(request, response) {
+
+//   const token = request.headers.authorization.split(' ')[1];
+
+//   jwt.verify(token, getKey, {}, function (err, user) {
+//     if (err) {
+//       response.send('invalid token');
+//     } else {
+//       response.send(user);
+//     }
+//   });
+
+// });
