@@ -17,10 +17,7 @@ const PORT = process.env.PORT || 3002;
 const app = express();
 app.use(express.json());
 app.use(cors());
-// TODO: need to add to .env for mongoDB
-// MONGODB_URL=mongodb://localhost:27017/user
-// mongoose.connect(process.env.MONGODB_USER_PATH);
-// mongoose.connect(process.env.MONGODB_REST_PATH);
+mongoose.connect(process.env.MONGODB_URI);
 
 
 // connect to mongoose database
@@ -41,7 +38,7 @@ app.put('/user', UserRoutes.update);
 
 // Restaurant Routes
 app.get('/restaurants', RestRoutes.read);
-// app.post('/restaurants', RestRoutes.create);
+app.post('/restaurants', RestRoutes.create);
 // app.put('/restaurants', RestRoutes.update);
 // app.delete('/restaurants', RestRoutes.delete);
 // Map Routes?
