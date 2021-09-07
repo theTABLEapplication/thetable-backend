@@ -21,7 +21,7 @@ function createUser(request, response) {
   }
 
   function getUsers(request, response) {
-    const token = request.headrs.authorization.split(' ')[1];
+    const token = request.headers.authorization.split(' ')[1];
     jwt.verify(token, getKey, {}, async function (error, user) {
       if(error) {
         response.send('invalid token');

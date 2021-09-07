@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const getKey = require('./helpers/getKey');
 const UserRoutes = require('./modules/userPaths');
 const testServer = require('./modules/serverTest');
+const RestRoutes = require('./modules/restaurant');
 // const getMap = require('./modules/map');
 
 const PORT = process.env.PORT || 3002;
@@ -16,10 +17,13 @@ const PORT = process.env.PORT || 3002;
 const app = express();
 app.use(express.json());
 app.use(cors());
-// TODO: need to add to .env for mongoDB
-// MONGODB_URL=mongodb://localhost:27017/user
-// mongoose.connect(process.env.MONGODB_USER_PATH);
-// mongoose.connect(process.env.MONGODB_REST_PATH);
+mongoose.connect(process.env.MONGODB_URI).then( () => {
+  console.log('successfully connected')
+})
+.catch(e => {
+  console.log(e);
+});
+
 
 
 // connect to mongoose database
@@ -39,7 +43,10 @@ app.post('/user', UserRoutes.create);
 app.put('/user', UserRoutes.update);
 
 // Restaurant Routes
-
+app.get('/restaurants', RestRoutes.read);
+app.post('/restaurants', RestRoutes.create);
+// app.put('/restaurants', RestRoutes.update);
+// app.delete('/restaurants', RestRoutes.delete);
 // Map Routes?
 
 // listener

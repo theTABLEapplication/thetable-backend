@@ -4,11 +4,12 @@ const { Schema } = mongoose;
 
 const restSchema = new Schema({
   name: String,
+  createdOn: String,
   hours: String,
   open_now: Boolean,
   address: String,
   location: String,
-  categories: String,
+  categories: Array,
   url: String,
   meals: Array,
   visits: Number,
