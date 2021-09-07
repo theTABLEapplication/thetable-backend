@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 // const { request, response } = require('express');
 const jwt = require('jsonwebtoken');
 const getKey = require('./helpers/getKey');
-// const getMap = require('./modules/map');
+const getMap = require('./modules/map');
 
 const PORT = process.env.PORT || 3002;
 
@@ -29,6 +29,7 @@ database.once('database open', _ => {
 });
 
 // routes
+app.get('/map', getMap);
 
 app.get('/test', async function test(request, response) {
 
@@ -44,19 +45,6 @@ app.get('/test', async function test(request, response) {
 
 });
 
-app.get('/', async function test(request, response) {
-
-  const token = request.headers.authorization.split(' ')[1];
-
-  jwt.verify(token, getKey, {}, function (err, user) {
-    if (err) {
-      response.send('invalid token');
-    } else {
-      response.send(user);
-    }
-  });
-
-});
 
 app.get('/user', (request, response) => {
     const token = request.headers.authorization.split(' ')[1];
@@ -65,34 +53,20 @@ app.get('/user', (request, response) => {
         if (err) {
   
         } else {
-          try {
-            request.query.email(request, response) => {
-              //   const token = request.headers.authorization.split(' ')[1];
+          // try {
+          //   request.query.email(request, response) => {
+          //     //   const token = request.headers.authorization.split(' ')[1];
                 
-              //     jwt.verify(token, getKey, {}, function (err, user) {
-              //       if (err) {
+          //     //     jwt.verify(token, getKey, {}, function (err, user) {
+          //     //       if (err) {
               
-              //       }
-              //     });
-          }
+          //     //       }
+          //     //     });
+          //   }
+          // } catch (error) {}
         }
-      });
-  
-
-
-// app.get('/favorites', (request, response) => {
-//   const token = request.headers.authorization.split(' ')[1];
-  
-//     jwt.verify(token, getKey, {}, function (err, user) {
-//       if (err) {
-
-//       }
-//     });
-// })
-
-// app.get('/map', getMap)
-
-app.get('')
+    })
+});
 
 app.get('/', (request, response) => {
   try {
@@ -101,7 +75,6 @@ app.get('/', (request, response) => {
     response.status(500).send(error);
   }
 })
-
 
 // listener
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
