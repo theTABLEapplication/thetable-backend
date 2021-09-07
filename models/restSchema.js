@@ -10,6 +10,8 @@ const restSchema = new Schema({
   location: String,
   categories: String,
   url: String,
+  meals: Array,
+  visits: Number,
 });
 
 const Restaurant = mongoose.model('Restaurant', restSchema);
