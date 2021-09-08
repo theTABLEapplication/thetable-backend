@@ -41,14 +41,15 @@ async function getRests (request, response) {
 // };
 
 async function createRest(request, response) {
+  console.log(request);
   // const token = request.headers.authorization.split(' ')[1];
   // jwt.verify(token, getKey, {}, async function (error, rest) {
   //   if (error) {
   //     response.send('invalid token');
   //   } else {
         try{
-          const { name, createdOn, hours, open_now, address, location, categories, url, meals, visits, userID, } = request.body;
-          const restInfo = { name, createdOn, hours, open_now, address, location, categories, url, meals, visits };
+          const { name, location, latitude, longitude, image_url, url, meals ,categories, visits, email } = request.body;
+          const restInfo = { name, location, latitude, longitude, image_url, url, meals ,categories, visits, email };
           const newRest = await Restaurant.create(restInfo);
           // //need to send the newRest to User's favorites, make sure to include "_id" as "id" in request.body
           // const existingUser = await User.find({ _id: userID })
