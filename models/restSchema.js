@@ -5,10 +5,10 @@ const { Schema } = mongoose;
 const restSchema = new Schema({
   name: String,
   createdOn: String,
-  location: String,
+  location: Array,
   categories: Array,
   url: String,
-  image_URL: String,
+  image_url: String,
   meals: Array,
   visits: Number,
   email: String,
