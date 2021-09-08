@@ -18,11 +18,11 @@ async function getRests (request, response) {
   //   if(error){
   //     response.send('invalid token');
   //   } else {
-      let name = request.query.name;
-      let city = request.query.city;
+      let term = request.query.term;
+      let location = request.query.location;
       const yelpKey = process.env.YELP_API_KEY;
     
-      let yelpAPI_URL = `https://api.yelp.com/v3/businesses/search?location=${city}&term=${name}&limit=5`;
+      let yelpAPI_URL = `https://api.yelp.com/v3/businesses/search?location=${location}&term=${term}&limit=5`;
     
       try{
         let yelpResponse = await axios.get(yelpAPI_URL, {
