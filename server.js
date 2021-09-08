@@ -44,9 +44,10 @@ app.put('/user', UserRoutes.update);
 
 // Restaurant Routes
 app.get('/restaurants', RestRoutes.read);
+app.get('/favRestaurants', RestRoutes.render);
 app.post('/restaurants', RestRoutes.create);
-// app.put('/restaurants', RestRoutes.update);
-// app.delete('/restaurants', RestRoutes.delete);
+app.put('/restaurants/:id', RestRoutes.update);
+app.delete('/restaurants/:id', RestRoutes.delete);
 // Map Routes?
 
 // listener
