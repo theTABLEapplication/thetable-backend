@@ -16,11 +16,12 @@ const RestRoutes = {
 
 async function renderRests (request, response) {
   const email = request.query.email;
-  // try {
-    const rests = await Restaurant.find({ email }, (err, rests) => {
-      if (err) return response.status(500).send(error);
-      response.send(rests);
-    });
+  try {
+    const rests = await Restaurant.find({ email });
+    response.status(200).send(rests);
+  } catch (error) {
+    response.status(500).send(error);
+  }
 }
 
 async function getRests (request, response) {
@@ -96,43 +97,12 @@ async function updateRest (request, response) {
 // }
 
 async function deleteRest(request, response) {
-
   try {
     await Restaurant.deleteOne({ _id: request.params.id });
-    response.status(200);
+    response.status(200).send('successfully deleted restaurant');
   } catch(err) {
     response.status(500).send(err)
   }
-
-  // try {
-    // const email = request.query.email;
-    // const restToDelete = await Restaurant.findOne({ _id: request.params.id }
-
-      // , (err, rest) => {
-      // console.log(restToDelete);
-      // if (err) {
-      //   return response.status(500).send(error)
-      // } else {
-      //   return rest;
-      // }
-      // }
-    //   );
-    //  console.log(restToDelete);
-
-    //   // console.log(restToDelete[0].email);
-    //   // console.log(request.query.email);
-    //   if (restToDelete[0].email === request.query.email) {
-    //     console.log(restToDelete[0]._id);
-    //     await Restaurant.deleteOne(restToDelete[0]._id);
-    //     response.status(200).send('success!');
-    //     // console.log('success!');
-    //   } else {
-    //     response.status(403).send('You do not have access rights to delete that one.');
-    // //   } catch (error) {
-    // //   response.status(500).send(error);
-    // // }
-    //   // }
-    // };
 }
 
 module.exports = RestRoutes;
