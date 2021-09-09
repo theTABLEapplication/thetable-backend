@@ -12,7 +12,7 @@ const testServer = require('./modules/serverTest');
 const RestRoutes = require('./modules/restaurant');
 // const getMap = require('./modules/map');
 
-const PORT = process.env.REACT_APP_HEROKU_URL ||process.env.PORT
+const PORT = process.env.PORT || 3001
 
 const app = express();
 app.use(express.json());
