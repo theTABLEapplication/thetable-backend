@@ -1,6 +1,9 @@
-![logo](./img/logo.png)
 
-# theTABLE (server)
+<div align="center">
+<img width="200px" src="./img/logo.png">
+</div>
+
+<h1 align="center">theTABLE</h1> 
 
 ## Authors: Sarah Creager, Justin Hamerly, Christopher Burk, Haustin Kimbrough
 
