@@ -14,7 +14,7 @@
 
 You know that feeling when you're trying to pick a place to eat, but you're too hungry to make a decision? We know the feeling all too well and so we set out on a mission to simply the process for you. `theTABLE` alleviates the stress of planning your next meal by tracking your favorite restaurants and recommended items. 
 
-Our app displays a personalized feed with all your favorite spots, along with eye-catching visuals and a dynamic worldwide map. It is a info feed for foodies and hungry people who need some inspiration on where to go tonight. No more hangry arguments over where to eat or settling for the same place the third time this week. Come on over to `theTABLE`. We've got you covered.
+Our app displays a personalized feed with all your favorite spots, along with eye-catching visuals and a dynamic worldwide map. It is an info feed for foodies and hungry people who need some inspiration on where to go tonight. No more hangry arguments over where to eat or settling for the same place the third time this week. Come on over to `theTABLE`. We've got you covered.
 
 ## Project Overview
 
