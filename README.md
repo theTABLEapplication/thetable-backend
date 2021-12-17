@@ -1,24 +1,53 @@
+![logo](./img/logo.png)
+
 # theTABLE (server)
 
 ## Authors: Sarah Creager, Justin Hamerly, Christopher Burk, Haustin Kimbrough
 
 ## Version: 1.0.0
 
-## Description
+## About
 
-theTABLE is an app that allows you to track the restaurants you have gone to and your recommended items. You will also be able to see your friend's recommended dishes and restaurants on your feed and personal map. The app will track your most frequented restaurants as well as offer recommendations from friends for other restaurants and food items. It is a social media, info feed for foodies and hungry people who need some inspiration on where to go tonight.
+`theTABLE` is an app that tracks your restaurants, recommended meals, and the number of visits. It displays a feed with detailed restaurant information and a personalized, dynamic worldwide map. This app is integrated with Auth0 login.
 
-## Resources and Contributions
+## Problem Domain
 
-## Change Log
+You know that feeling when you're trying to pick a place to eat, but you're too hungry to make a decision? We know the feeling all too well and so we set out on a mission to simply the process for you. `theTABLE` alleviates the stress of planning your next meal by tracking your favorite restaurants and recommended items. 
 
-## Domain Model
+Our app displays a personalized feed with all your favorite spots, along with eye-catching visuals and a dynamic worldwide map. It is an info feed for foodies and hungry people who need some inspiration on where to go tonight. No more hangry arguments over where to eat or settling for the same place the third time this week. Come on over to `theTABLE`. We've got you covered.
 
-![domainmodel](./img/DomainModel.png)
+## Project Overview
 
-## Database Schema Diagram
+| Title      | Languages/Frameworks/Libraries/Tools |
+| ----------- | ----------- |
+| Frontend | React, Netlify, React-Bootstrap, CSS3 |
+| Backend | Node.js, Express, Mongoose, Heroku, MongoDB Atlas |
+| Integrations | Auth0, Yelp Business Search API, MapBox GL JS, MongoDB Compass |
 
-![DatabaseSchemaDiagram](./img/DatabaseSchemaDiagram.png)
+## Installation
+
+1. `npm install`  
+    * axios
+    * cors
+    * dotenv
+    * express
+    * jsonwebtoken
+    * jwks-rsa
+    * mongoose
+
+
+2. `npm start`
+
+*sample .env*
+``` 
+PORT=3001
+
+LOCATIONIQ_API_KEY=placeYourAPIKeyHere
+
+YELP_API_KEY=placeYourAPIKeyHere
+
+MONGODB_URI=placeYourMongoDBLinkHere
+```
 
 ## User Stories
 
@@ -75,6 +104,40 @@ Acceptance:
 - The pins will display in a unique color for user’s selections.
 
 - The pins will increase in size every 3 times the restaurant is visited.
+
+## Domain Model
+
+![domainmodel](./img/DomainModel.png)
+
+## Database Schema Diagram
+
+![DatabaseSchemaDiagram](./img/DatabaseSchemaDiagram.png)
+
+## Resources and Contributions
+
+### Sites
+
+* [Miro](https://miro.com/login/)
+* [Unsplash](https://unsplash.com/)
+* [Trello](https://trello.com/)
+* [Stack Overflow](stackoverflow.com)
+* [Mongoose Docs](https://mongoosejs.com/docs/api.html)
+* [MDN Docs](https://developer.mozilla.org/en-US/)
+* [W3 Schools](https://www.w3schools.com/)
+* [Node JS Docs](https://nodejs.org/en/docs/)
+* [Yelp API](https://www.yelp.com/developers)
+* [Mapbox GL](https://www.mapbox.com/)
+
+### Advisors
+
+* JB Tellez
+* Hexx King
+* Kristian Esvelt
+* Chance Harmon
+* Audrey Patterson
+* JP Jones
+
+## Future Implementations
 
 ### ADD A MAP THAT DISPLAYS FRIEND'S VISITED RESTAURANTS
 
